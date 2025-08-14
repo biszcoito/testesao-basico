@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Minha Rede</title>
+    <!-- CSS DO BOOTSTRAP ADICIONADO -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-light">
+    <!-- Adicionei classes do Bootstrap para centralizar melhor o conteúdo -->
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="card p-4" style="width: 100%; max-width: 400px;">
+            <div class="card-body text-center">
+                <h1 class="card-title mb-3">Minha Rede</h1>
+                <p class="card-text text-muted">Digite seu e-mail para entrar ou criar sua conta.</p>
+                <form id="login-form">
+                    <div class="mb-3">
+                        <input type="email" id="email-input" class="form-control" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Entrar / Criar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>

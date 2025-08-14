@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Enquete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Criar Nova Enquete</h5>
+                <a href="app.html" class="btn btn-close"></a>
+            </div>
+            <div class="card-body">
+                <form id="poll-form">
+                    <div class="mb-3">
+                        <label for="poll-question" class="form-label">Pergunta da Enquete</label>
+                        <input type="text" id="poll-question" class="form-control" required>
+                    </div>
+                    <div id="poll-options-container">
+                        <div class="mb-2 input-group">
+                            <input type="text" class="form-control poll-option-input" placeholder="Opção 1" required>
+                        </div>
+                        <div class="mb-2 input-group">
+                            <input type="text" class="form-control poll-option-input" placeholder="Opção 2" required>
+                        </div>
+                    </div>
+                    <button type="button" id="add-option-btn" class="btn btn-outline-secondary btn-sm"><i class="bi bi-plus-lg"></i> Adicionar Opção</button>
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">Publicar Enquete no Grupo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/poll.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Uno!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/uno_style.css"> <!-- NOVO CSS específico para o Uno -->
+</head>
+<body>
+    <div id="game-table">
+        <!-- ÁREA DOS OPONENTES (EXEMPLO PARA O TOPO) -->
+        <div class="player-area opponent-top">
+            <!-- As cartas dos oponentes aparecerão aqui viradas para baixo -->
+        </div>
+
+        <!-- CENTRO DA MESA -->
+        <div class="table-center">
+            <div id="draw-pile" class="card-pile">
+                <div class="uno-card back">UNO</div>
+            </div>
+            <div id="discard-pile" class="card-pile">
+                <!-- A carta do topo do descarte aparecerá aqui -->
+            </div>
+             <div id="game-info" class="game-info">
+                <p>É a vez de: <strong id="current-player-name"></strong></p>
+                <p>Cor atual: <strong id="current-color-indicator"></strong></p>
+            </div>
+        </div>
+
+        <!-- ÁREA DO JOGADOR ATUAL -->
+        <div class="player-area current-player">
+            <h5 id="my-username" class="player-name"></h5>
+            <div id="my-hand" class="hand">
+                <!-- Minhas cartas aparecerão aqui -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL DE ESCOLHA DE COR (para cartas Curinga) -->
+    <div class="modal fade" id="color-picker-modal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5>Escolha uma Cor</h5></div>
+                <div class="modal-body d-grid gap-2">
+                    <button class="btn btn-danger btn-lg color-choice" data-color="RED">Vermelho</button>
+                    <button class="btn btn-success btn-lg color-choice" data-color="GREEN">Verde</button>
+                    <button class="btn btn-primary btn-lg color-choice" data-color="BLUE">Azul</button>
+                    <button class="btn btn-warning btn-lg color-choice" data-color="YELLOW">Amarelo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de lobby/início -->
+    <div id="lobby-overlay" class="lobby-overlay">
+        <h2>Aguardando Jogadores...</h2>
+        <div id="lobby-players-list"></div>
+        <button id="start-game-btn" class="btn btn-primary btn-lg mt-4" disabled>Iniciar Jogo</button>
+         <a href="app.html" class="btn btn-outline-secondary mt-2">Sair do Jogo</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/game_uno.js"></script>
+</body>
+</html>

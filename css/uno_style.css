@@ -1,0 +1,80 @@
+
+body {
+    background-color: #0c4b33; /* Fundo de mesa de feltro verde */
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#game-table {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.player-area {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opponent-top { top: 0; }
+.current-player { bottom: 0; flex-direction: column; }
+
+.hand { display: flex; gap: -40px; /* Sobrepõe as cartas */ }
+.hand .uno-card { cursor: pointer; transition: transform 0.2s, margin-bottom 0.2s; }
+.hand .uno-card:hover { transform: scale(1.1); margin-bottom: 20px; z-index: 10; }
+
+.table-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.game-info { color: white; text-shadow: 1px 1px 2px black; text-align: center; }
+.card-pile {
+    width: 100px;
+    height: 150px;
+}
+#draw-pile { cursor: pointer; }
+
+/* ESTILOS DA CARTA DE UNO */
+.uno-card {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+}
+.uno-card.back { background-color: #333; }
+.uno-card.RED { background-color: #d92d20; }
+.uno-card.GREEN { background-color: #38b000; }
+.uno-card.BLUE { background-color: #0077b6; }
+.uno-card.YELLOW { background-color: #ffc300; }
+.uno-card.WILD {
+    background: linear-gradient(45deg, #d92d20, #ffc300, #38b000, #0077b6);
+}
+
+.lobby-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}

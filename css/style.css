@@ -1,0 +1,153 @@
+/* Altura do Layout Principal para preencher a tela */
+body, html { height: 100%; background-color: #f0f2f5; }
+
+.main-layout, .sidebar, .main-content {
+    height: calc(100vh - 75px);
+}
+
+.card, #chat-window {
+    height: 100%; display: flex; flex-direction: column;
+}
+
+#users-list, #groups-list, .post-creator {
+    overflow-y: auto;
+}
+
+#chat-messages {
+    flex-grow: 1; overflow-y: auto; padding: 1rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+}
+
+/* Base da mensagem */
+.message-container { display: flex; width: 100%; }
+.my-message-container { justify-content: flex-end; }
+.other-message-container { justify-content: flex-start; }
+
+/* Bolha da mensagem de texto */
+.message-bubble { padding: 0.5rem 1rem; border-radius: 1.25rem; max-width: 75%; }
+.my-message-bubble { background-color: #0d6efd; color: white; }
+.other-message-bubble { background-color: #e9ecef; }
+.sender-name { font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem; color: #6c757d; }
+
+/* Ícone de Lixeira na mensagem */
+.delete-icon {
+    cursor: pointer; color: #adb5bd; opacity: 0; transition: opacity 0.2s; align-self: center; margin: 0 0.5rem;
+}
+.message-container:hover .delete-icon { opacity: 1; }
+
+/* Card de Mensagem Especial (Enquete/Tabela) */
+.special-message-card {
+    border: 1px solid #dee2e6; border-radius: .5rem; background-color: #f8f9fa;
+    width: 90%; align-self: center; padding: 1rem;
+}
+.special-message-card .card-title { font-size: 1.1rem; }
+
+/* Enquete */
+.poll-option { margin-bottom: 0.5rem; }
+.poll-result-bar {
+    background-color: #e9ecef; border-radius: .25rem; height: 1.5rem;
+    display: flex; align-items: center; font-size: 0.8rem;
+    color: #495057; overflow: hidden;
+}
+.poll-result-fill {
+    background-color: #0d6efd; height: 100%;
+}
+/* --- TEMA --- */
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --text-muted-color: #6c757d;
+    --border-color: #dee2e6;
+}
+body.theme-dark {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-muted-color: #888888;
+    --border-color: #444444;
+}
+
+/* Aplicação das variáveis de tema */
+body { background-color: var(--bg-color); color: var(--text-color); }
+.card, .modal-content { background-color: var(--card-bg); color: var(--text-color); }
+.navbar { background-color: var(--card-bg) !important; }
+.navbar-brand, .nav-link, .modal-title, .form-label { color: var(--text-color) !important; }
+.text-muted { color: var(--text-muted-color) !important; }
+.form-control, .form-select {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+.form-control:focus { background-color: var(--bg-color); color: var(--text-color); }
+.list-group-item { background-color: transparent; border-color: var(--border-color); }
+.list-group-item-action:hover { background-color: rgba(128, 128, 128, 0.1); }
+.dropdown-menu { background-color: var(--card-bg); }
+.dropdown-item { color: var(--text-color); }
+.dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
+hr.dropdown-divider { border-top: 1px solid var(--border-color); }
+
+/* --- Configurações de UI --- */
+.gradient-preset {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.gradient-preset:hover {
+    transform: scale(1.1);
+    border-color: #0d6efd;
+}
+.message-preview-container {
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+#my-message-preview {
+    color: white; /* Cor do texto fixo na prévia */
+}
+/* ===== SIDEBAR RETRÁTIL ===== */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-width-compact: 80px;
+}
+.main-wrapper {
+    display: flex;
+    height: calc(100vh - 56px); /* 56px é a altura padrão do navbar */
+}
+.sidebar {
+    width: var(--sidebar-width);
+    transition: width 0.3s ease;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    overflow-x: hidden;
+}
+.sidebar.compact {
+    width: var(--sidebar-width-compact);
+}
+.sidebar-content {
+    padding: 1rem;
+}
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+}
+.sidebar .nav-link .icon {
+    font-size: 1.5rem;
+    min-width: 50px;
+    text-align: center;
+}
+.sidebar.compact .nav-link .text {
+    display: none;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Stop!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos do jogo */
+        .letter-display { font-size: 8rem; font-weight: bold; }
+        .game-board input { text-transform: uppercase; }
+        #countdown-overlay { font-size: 5rem; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <main class="container mt-4">
+        <div id="game-container" class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 id="game-title" class="mb-0">Jogo de Stop!</h5>
+                <div id="game-status" class="text-muted">Aguardando início...</div>
+            </div>
+            
+            <div class="card-body">
+                <!-- Seção de Jogadores e Pontuações -->
+                <div class="mb-4">
+                    <h6>Jogadores na sala:</h6>
+                    <div id="players-list" class="d-flex gap-3">
+                        <!-- Nomes dos jogadores aparecerão aqui -->
+                    </div>
+                </div>
+
+                <!-- TELA DO JOGO (dinâmica) -->
+                <div id="game-area" class="text-center">
+                    
+                    <!-- 1. Lobby (antes do jogo começar) -->
+                    <div id="lobby-view">
+                        <p>Aguardando o líder da sala (<span id="leader-name"></span>) iniciar o jogo.</p>
+                        <button id="start-round-btn" class="btn btn-primary btn-lg" disabled>Iniciar Rodada!</button>
+                    </div>
+
+                    <!-- 2. Display da Letra e Jogo -->
+                    <div id="playing-view" class="d-none">
+                        <div class="letter-display text-primary" id="current-letter-display">?</div>
+                        <p class="lead">A letra sorteada é: <strong id="current-letter-text">...</strong></p>
+                        
+                        <div id="game-board" class="mt-4">
+                            <!-- Campos para as categorias aparecerão aqui -->
+                        </div>
+
+                        <button id="stop-btn" class="btn btn-danger btn-lg mt-4">STOP!</button>
+                    </div>
+
+                    <!-- 3. Validação das Respostas -->
+                    <div id="validation-view" class="d-none">
+                         <h4 class="mb-4">Validação da Rodada</h4>
+                         <p>Quem deu STOP foi: <strong id="stopped-by-player"></strong></p>
+                         <div id="validation-table" class="table-responsive">
+                            <!-- Tabela de respostas para validar -->
+                         </div>
+                         <button id="finish-validation-btn" class="btn btn-success mt-3">Finalizar Validação e ver Pontuação</button>
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="card-footer d-flex justify-content-between">
+                <span>Rodada <span id="round-number">1</span></span>
+                <a href="app.html" class="btn btn-sm btn-outline-secondary">Sair do Jogo</a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/game_stop.js"></script>
+</body>
+</html>
